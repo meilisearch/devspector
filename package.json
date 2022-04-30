@@ -5,12 +5,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "build": "vuepress build",
     "dev": "vuepress dev",
     "setup": "node setup.js"
   },
   "dependencies": {
-    "docs-searchbar.js": "^2.1.1",
     "vuepress": "^1.4.1",
+    "vuepress-plugin-meilisearch": "^0.12.1",
     "vuepress-theme-default-prefers-color-scheme": "^2.0.0"
   }
 }
