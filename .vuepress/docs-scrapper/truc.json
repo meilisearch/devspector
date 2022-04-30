@@ -1,0 +1,22 @@
+{
+  "js_render": true,
+  "js_wait": 1,
+  "allowed_domains": ["localhost"],
+  "index_uid": "specs",
+  "start_urls": ["http://localhost:8080"],
+  "selectors": {
+    "lvl0": {
+      "selector": "h2",
+      "global": true,
+      "default_value": "Specifications"
+    },
+    "lvl1": ".theme-default-content h2",
+    "lvl2": ".theme-default-content h3",
+    "lvl3": ".theme-default-content h4",
+    "lvl4": ".theme-default-content h5",
+    "lvl5": ".theme-default-content h6",
+    "text": "p"
+  },
+  "strip_chars": " .,;:#",
+  "scrap_start_urls": true
+}
