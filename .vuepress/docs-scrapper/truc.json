@@ -17,5 +17,6 @@
     "lvl5": ".theme-default-content h5",
     "text": "p"
   },
+  "strip_chars": " .,;:#",
   "scrap_start_urls": true
 }
