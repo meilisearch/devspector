@@ -3,7 +3,7 @@ name: GitHub pages and scraping
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build-deploy:
