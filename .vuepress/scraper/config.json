@@ -1,7 +1,7 @@
 {
-  "allowed_domains": ["irevoire.github.io"],
+  "allowed_domains": ["meilisearch.github.io"],
   "index_uid": "develop",
-  "start_urls": ["https://irevoire.github.io/turboctopus/"],
+  "start_urls": ["https://meilisearch.github.io/devspector/"],
   "selectors": {
     "lvl0": {
       "selector": ".theme-default-content > ul:nth-child(1) li:nth-child(1)",

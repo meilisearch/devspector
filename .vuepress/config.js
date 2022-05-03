@@ -6,7 +6,7 @@ const projects = fs.readdirSync(path.join(__dirname, "../specifications/text"))
 module.exports = {
   title: 'Welcome to the Meilisearch specifications!',
   theme: 'default-prefers-color-scheme',
-  base: "/turboctopus/",
+  base: "/devspector/",
   themeConfig: {
     prefersTheme: 'dark',
     nav: [
