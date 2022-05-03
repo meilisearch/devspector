@@ -18,7 +18,7 @@ module.exports = {
     [
       "meilisearch",
       {
-        hostUrl: 'http://localhost:7700',
+        hostUrl: "https://ms-2e56dc05278b-269.lon.meilisearch.io",
         apiKey:
           'dqWEB2tce678ba2b88af48c599c51497ece5611024d8b4b6d78b3c6227217036e42771ef',
         indexUid: 'main',
