@@ -19,7 +19,7 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    - run: git clone https://github.com/meilisearch/specifications
+    - run: git clone --branch develop https://github.com/meilisearch/specifications
     - run: yarn install
     - run: yarn build
     - run: rm -rf docs
