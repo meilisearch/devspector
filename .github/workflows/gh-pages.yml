@@ -24,13 +24,13 @@ jobs:
     - name: Deploy to github pages
     - run: rm -rf docs
     - run: cp -r .vuepress/dist docs
-    run: |
-      git config --global user.name "tamo Le bot"
-      git config --global user.email "tamo@meilisearch.com"
-      
-      git add docs
-      git commit -m "update the website according to the specs"
-      git push
+    - run: |
+        git config --global user.name "tamo Le bot"
+        git config --global user.email "tamo@meilisearch.com"
+        
+        git add docs
+        git commit -m "update the website according to the specs"
+        git push
 
   run-scraper:
     needs: build-deploy
