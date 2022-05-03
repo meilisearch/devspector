@@ -9,28 +9,28 @@ jobs:
   build-deploy:
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@master
-      - name: Cache dependencies
-        uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - run: git clone https://github.com/meilisearch/specifications
-      - name: Build the website
-      - run: yarn install
-      - run: yarn build
-      - name: Deploy to github pages
-      - run: rm -rf docs
-      - run: cp -r .vuepress/dist docs
-      run: |
-        git config --global user.name "tamo Le bot"
-        git config --global user.email "tamo@meilisearch.com"
-        
-        git add docs
-        git commit -m "update the website according to the specs"
-        git push
+    - uses: actions/checkout@master
+    - name: Cache dependencies
+      uses: actions/cache@v1
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - run: git clone https://github.com/meilisearch/specifications
+    - name: Build the website
+    - run: yarn install
+    - run: yarn build
+    - name: Deploy to github pages
+    - run: rm -rf docs
+    - run: cp -r .vuepress/dist docs
+    run: |
+      git config --global user.name "tamo Le bot"
+      git config --global user.email "tamo@meilisearch.com"
+      
+      git add docs
+      git commit -m "update the website according to the specs"
+      git push
 
   run-scraper:
     needs: build-deploy
