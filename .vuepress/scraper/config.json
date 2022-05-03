@@ -1,6 +1,6 @@
 {
   "allowed_domains": ["irevoire.github.io"],
-  "index_uid": "main",
+  "index_uid": "develop",
   "start_urls": ["https://irevoire.github.io/turboctopus/"],
   "selectors": {
     "lvl0": {
