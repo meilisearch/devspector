@@ -1,9 +1,9 @@
 {
   "js_render": true,
   "js_wait": 1,
-  "allowed_domains": ["localhost"],
+  "allowed_domains": ["irevoire.github.io"],
   "index_uid": "specs",
-  "start_urls": ["http://localhost:8080"],
+  "start_urls": ["https://irevoire.github.io/turboctopus/"],
   "selectors": {
     "lvl0": {
       "selector": ".theme-default-content > ul:nth-child(1) li:nth-child(1)",
