@@ -20,8 +20,8 @@ module.exports = {
       {
         hostUrl: 'http://localhost:7700',
         apiKey:
-          'masterKey',
-        indexUid: 'specs',
+          'dqWEB2tce678ba2b88af48c599c51497ece5611024d8b4b6d78b3c6227217036e42771ef',
+        indexUid: 'main',
         debug: false,
         enableDarkMode: 'auto'
         // "maxSuggestions": 10,
