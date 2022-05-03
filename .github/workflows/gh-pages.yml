@@ -11,40 +11,45 @@ jobs:
   build-deploy:
     runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@master
-    - name: Cache dependencies
-      uses: actions/cache@v1
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - run: git clone --branch develop https://github.com/meilisearch/specifications
-    - run: yarn install
-    - run: yarn build
-    - run: git pull # this can be useful if the action is been re-run
-    - run: rm -rf docs
-    - run: cp -r .vuepress/dist docs
-    - run: |
-        git config --global user.name "tamo Le bot"
-        git config --global user.email "tamo@meilisearch.com"
-        
-        git add docs
-        git commit -m "update the website according to the specs"
-        git push
+      - uses: actions/checkout@master
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - run: git clone --branch develop https://github.com/meilisearch/specifications
+      - run: yarn install
+      - run: yarn build
+      - run: git pull # this can be useful if the action is been re-run
+      - run: rm -rf docs
+      - run: cp -r .vuepress/dist docs
+      - run: |
+          git config --global user.name "tamo Le bot"
+          git config --global user.email "tamo@meilisearch.com"
+          
+          git add docs
+          git commit -m "update the website according to the specs"
+          git push
 
   run-scraper:
     needs: build-deploy
     runs-on: ubuntu-18.04
+    env:
+      HOST_URL: ${{ secrets.MEILISEARCH_HOST_URL }}
+      API_KEY: ${{ secrets.MEILISEARCH_API_KEY }}
     steps:
       - name: Wait 2 minutes for the github-pages to deploy
-        # usually the deployment of the github-pages takes ~1 minute thus we should be safe by sleeping two minutes
+        # usually the deployment of the github-pages takes ~1 minute thus we
+        # should be safe by sleeping two minutes
         run: sleep 120
       - uses: actions/checkout@master
+      - name: Delete all documents in index
+        run: |
+          curl -X DELETE "$HOST_URL/indexes/main/documents" -H "Authorization: Bearer $API_KEY"
       - name: Run scraper
         env:
-          HOST_URL: ${{ secrets.MEILISEARCH_HOST_URL }}
-          API_KEY: ${{ secrets.MEILISEARCH_API_KEY }}
           CONFIG_FILE_PATH: ${{ github.workspace }}/.vuepress/scraper/
         run: |
           docker run -t --rm \
