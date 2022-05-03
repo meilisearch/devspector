@@ -18,15 +18,19 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - run: git clone https://github.com/meilisearch/specifications
+      - name: Build the website
       - run: yarn install
       - run: yarn build
-      - run: echo 'docs.meilisearch.com' > .vuepress/dist/CNAME
-      - name: deploy
-        uses: peaceiris/actions-gh-pages@v2.5.0
-        env:
-          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: .vuepress/dist
+      - name: Deploy to github pages
+      - run: rm -rf docs
+      - run: cp -r .vuepress/dist docs
+      run: |
+        git config --global user.name "tamo Le bot"
+        git config --global user.email "tamo@meilisearch.com"
+        
+        git add docs
+        git commit -m "update the website according to the specs"
+        git push
 
   run-scraper:
     needs: build-deploy
