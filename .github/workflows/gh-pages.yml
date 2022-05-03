@@ -47,7 +47,7 @@ jobs:
       - uses: actions/checkout@master
       - name: Delete all documents in index
         run: |
-          curl -X DELETE "$HOST_URL/indexes/main/documents" -H "Authorization: Bearer $API_KEY"
+          curl -X DELETE "$HOST_URL/indexes/develop/documents" -H "Authorization: Bearer $API_KEY"
       - name: Run scraper
         env:
           CONFIG_FILE_PATH: ${{ github.workspace }}/.vuepress/scraper/
