@@ -25,6 +25,7 @@ jobs:
       - run: git pull # this can be useful if the action is been re-run
       - run: rm -rf docs
       - run: cp -r .vuepress/dist docs
+      - run: cp CNAME favicon.ico docs/
       - run: |
           git config --global user.name "tamo Le bot"
           git config --global user.email "tamo@meilisearch.com"
