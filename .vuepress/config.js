@@ -4,9 +4,8 @@ const path = require('path');
 const projects = fs.readdirSync(path.join(__dirname, "../specifications/text"))
 
 module.exports = {
-  title: 'Welcome to the Meilisearch specifications!',
+  title: 'Welcome to the Meilisearch dev specifications!',
   theme: 'default-prefers-color-scheme',
-  base: "/devspector/",
   themeConfig: {
     prefersTheme: 'dark',
     nav: [

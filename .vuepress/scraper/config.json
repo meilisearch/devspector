@@ -1,7 +1,7 @@
 {
-  "allowed_domains": ["meilisearch.github.io"],
+  "allowed_domains": ["spec.meilisearch.dev"],
   "index_uid": "develop",
-  "start_urls": ["https://meilisearch.github.io/devspector/"],
+  "start_urls": ["https://spec.meilisearch.dev/"],
   "selectors": {
     "lvl0": {
       "selector": ".theme-default-content > ul:nth-child(1) li:nth-child(1)",
