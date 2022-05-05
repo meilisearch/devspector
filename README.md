@@ -2,7 +2,7 @@
 
 This website help the navigation of the [specification](https://github.com/meilisearch/specifications/) repository:
 - it has been built around the [`develop`](https://github.com/meilisearch/specifications/tree/develop) branch of the specifications.
-- it's updated everyday at 12PM
+- it's updated everyday at 12PM and deployed via GitHub Pages.
 
 👉 Go to [this website](https://specs.meilisearch.dev/)!
 
