@@ -27,8 +27,8 @@ jobs:
       - run: cp -r .vuepress/dist docs
       - run: cp CNAME favicon.ico docs/
       - run: |
-          git config --global user.name "tamo Le bot"
-          git config --global user.email "tamo@meilisearch.com"
+          git config --global user.name "meili-bot"
+          git config --global user.email "74670311+meili-bot@users.noreply.github.com"
           
           git add docs
           git commit -m "update the website according to the specs"
